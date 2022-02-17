@@ -3,8 +3,20 @@
 import dice
 
 def main():
-    print("hello and welcome to our game. please roll the dice")
-    x = 5
+    
+    menu()
+    
     test_die = dice.Dice()
     test_num = test_die.roll_the_dice()
     print(test_num)
+
+def menu():
+    print("""Welcome to the game! 
+    below you will find your options! """)
+
+
+
+
+if __name__ == '__main__':
+    # Call the main function.
+    main()
