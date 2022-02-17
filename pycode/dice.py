@@ -15,7 +15,7 @@ class Dice():
     def roll_the_dice(self):
         num = random.randint(1, self.max_amount)
         return num
-
+        
 
 
 
