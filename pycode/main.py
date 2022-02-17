@@ -19,6 +19,8 @@ def main():
             print("skapa karaktär här ? ")
         case '5':
             print("kolla highscore här ? ")
+        case '6':
+            print("hej johan!")
             
                 
     
