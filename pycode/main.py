@@ -3,6 +3,7 @@
 
 
 import dice
+import random
 
 def main():
 
@@ -15,13 +16,26 @@ def main():
     match x:
         case '1':
             die_player1 = dice.Dice()
-            selection = '1'
-            while (selection == '1'):
-                sum = die_player1.roll_the_dice()
-                print(f"you rolled a {sum}, continue playing? 1 for yes, 2 to stop")
-                selection = input(str("choose option"))
-                if (selection == '2'):
-                    print(f"you now have a total of {die_player1.total_amount}")
+            die_computer = dice.Dice()
+            player1_total = 0
+            computer_total = 0
+            while (die_player1.total_amount or die_computer.total_amount < 100):
+                selection = input(str("1 to throw, 2 to stop"))
+                if (selection == '1'):
+                    sum = die_player1.roll_the_dice()
+                    print(f"you rolled a {sum}, continue playing? 1 for yes, 2 to stop")
+                    if (sum == 1):
+                        player1_total = 0
+                        print("round score set to 0. Computers turn")
+                    elif(sum > 0):
+                        player1_total += sum
+                        print("you now have " + str(player1_total)+  " in this round")
+                        print("and in total you have "+ str(die_player1.total_amount))
+                elif (selection == '2'):
+                    die_player1.add_to_total(player1_total)
+                    print("Computers turn!")
+                    
+                
         case '2':
             print("gamemode 2")
         case '3':
