@@ -7,8 +7,6 @@ import random
 
 def main():
 
-    
-    
     menu()
 
     options()
@@ -20,21 +18,40 @@ def main():
             player1_total = 0
             computer_total = 0
             while (die_player1.total_amount or die_computer.total_amount < 100):
-                selection = input(str("1 to throw, 2 to stop"))
-                if (selection == '1'):
+                selection = int(input("1 to throw, 2 to stop"))
+                if (selection == 1):
                     sum = die_player1.roll_the_dice()
                     print(f"you rolled a {sum}, continue playing? 1 for yes, 2 to stop")
                     if (sum == 1):
                         player1_total = 0
                         print("round score set to 0. Computers turn")
-                    elif(sum > 0):
+                    elif(sum > 1):
                         player1_total += sum
                         print("you now have " + str(player1_total)+  " in this round")
                         print("and in total you have "+ str(die_player1.total_amount))
-                elif (selection == '2'):
+                elif (selection == 2):
                     die_player1.add_to_total(player1_total)
+
                     print("Computers turn!")
+                    while True:
+                        computer_selection = random.randint(1,2)
+                        if(computer_selection == 1):
+                            sum_comp = die_computer.roll_the_dice()
+                            print(f"computer rolled a {sum_comp}")
+                            if(sum_comp > 1):
+                                computer_total += sum_comp
+                                print(f"computer now has a total of {computer_total} this round")
+                            elif(sum_comp == 1):
+                                computer_total = 0
+                                print("total round score set to zero. player 1 turn again")
+                                break
+                        elif(computer_selection == 2):
+                            print("computer gave up this round. pathetic")
+                            break
+               
+                
                     
+
                 
         case '2':
             print("gamemode 2")
