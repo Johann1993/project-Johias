@@ -1,8 +1,12 @@
 # this is our main py file to run the game
+# . .venv/Scripts/activate     active venv in bash
+
 
 import dice
 
 def main():
+
+    
     
     menu()
 
@@ -10,7 +14,14 @@ def main():
     x = input(str("select option "))
     match x:
         case '1':
-            print("här kör vi gamemode 1")
+            die_player1 = dice.Dice()
+            selection = '1'
+            while (selection == '1'):
+                sum = die_player1.roll_the_dice()
+                print(f"you rolled a {sum}, continue playing? 1 for yes, 2 to stop")
+                selection = input(str("choose option"))
+                if (selection == '2'):
+                    print(f"you now have a total of {die_player1.total_amount}")
         case '2':
             print("gamemode 2")
         case '3':
@@ -22,11 +33,7 @@ def main():
         case '6':
             print("hej johan!")
             
-                
-    
-    test_die = dice.Dice()
-    test_num = test_die.roll_the_dice()
-    print(test_num)
+
 
 def menu():
     print(""" 
@@ -47,9 +54,6 @@ def options():
     5) view local highscores""")
 
     
-
-
-
 
 if __name__ == '__main__':
     # Call the main function.
