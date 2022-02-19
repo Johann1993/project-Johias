@@ -30,6 +30,7 @@ def main():
                         player1_total += sum
                         print("you now have " + str(player1_total)+  " in this round")
                         print("and in total you have "+ str(die_player1.total_amount))
+                        print("------------------------------------")
                 elif (selection == 2):
                     die_player1.add_to_total(player1_total)
                     player1_total = 0
