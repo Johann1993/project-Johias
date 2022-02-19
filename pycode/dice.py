@@ -15,8 +15,11 @@ class Dice():
     def roll_the_dice(self):
         num = random.randint(1, self.max_amount)
         self.my_rolls_amount += 1
-        #print("you got"+ num + "and now got total of " + self.total_amount + "throws. continue playing?")
         return num
+
+    def roll_dice_cheat(self):
+        result = self.max_amount
+        return result
 
     def show_total(self):
         return self.total_amount
