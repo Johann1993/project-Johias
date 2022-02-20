@@ -6,7 +6,7 @@ import dice
 import random
 
 def main():
-
+    print("just tried to add a print from my stationary computer :)")
     menu()
 
     options()
