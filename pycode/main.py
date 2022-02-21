@@ -69,7 +69,70 @@ def main():
 
                 
         case '2':
-            print("Player vs Player")
+            die_player1 = dice.Dice()
+            die_player2 = dice.Dice()
+            player1_total = 0
+            player2_total = 0
+            while (die_player1.total_amount < 100 or die_player2.total_amount < 100):
+                #player 1
+                while True:
+                    selection = int(input("1 to throw, 2 to stop"))
+                    if (selection == 1):
+                        sum = die_player1.roll_the_dice()
+                        print(f"you rolled a {sum}")
+                        if (sum == 1):
+                            player1_total = 0
+                            print("round score set to 0. Computers turn")
+                            print("-------------------------------------")
+                            break
+                        elif(sum > 1):
+                            player1_total += sum
+                            print("you now have " + str(player1_total)+  " in this round")
+                            print("and in total you have "+ str(die_player1.total_amount))
+                            print("------------------------------------")
+                    elif (selection == 2):
+                        die_player1.add_to_total(player1_total)
+                        player1_total = 0
+                        print("Computers turn!")
+                        break
+                    elif (selection == 3):
+                        print("you chose to exit game!")
+                        break
+                    elif(selection == 4):
+                        sum = die_player1.roll_dice_cheat()
+                        print(f"you got a {sum}. wow, what are the odds!?")
+                        player1_total += sum
+                        print(f"round total: {player1_total}")
+
+                #player 2 
+                while True:
+                    selection = int(input("1 to throw, 2 to stop"))
+                    if (selection == 1):
+                        sum = die_player1.roll_the_dice()
+                        print(f"you rolled a {sum}")
+                        if (sum == 1):
+                            player2_total = 0
+                            print("round score set to 0. Computers turn")
+                            print("-------------------------------------")
+                            break
+                        elif(sum > 1):
+                            player2_total += sum
+                            print("you now have " + str(player2_total)+  " in this round")
+                            print("and in total you have "+ str(die_player2.total_amount))
+                            print("------------------------------------")
+                    elif (selection == 2):
+                        die_player1.add_to_total(player2_total)
+                        player2_total = 0
+                        print("Computers turn!")
+                        break
+                    elif (selection == 3):
+                        print("you chose to exit game!")
+                        break
+                    elif(selection == 4):
+                        sum = die_player2.roll_dice_cheat()
+                        print(f"you got a {sum}. wow, what are the odds!?")
+                        player2_total += sum
+                        print(f"round total: {player2_total}")
         case '3':
             print("Highscores(local)")
         case '4':
