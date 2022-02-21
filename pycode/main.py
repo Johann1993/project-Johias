@@ -17,35 +17,38 @@ def main():
             die_computer = dice.Dice()
             player1_total = 0
             computer_total = 0
-            while (die_player1.total_amount < 100 or die_computer.total_amount < 100):
+
+            while ((die_player1.total_amount) < 100 or die_computer.total_amount < 100):
+
                 while True:
                     selection = int(input("1 to throw, 2 to stop"))
-                    if (selection == 1):
-                        sum = die_player1.roll_the_dice()
-                        print(f"you rolled a {sum}")
-                        if (sum == 1):
+                    match selection:
+                        case 1:
+                            sum = die_player1.roll_the_dice()
+                            print(f"you rolled a {sum}")
+                            if (sum == 1):
+                                player1_total = 0
+                                print("round score set to 0. Computers turn")
+                                print("-------------------------------------")
+                                break
+                            elif(sum > 1):
+                                player1_total += sum
+                                print("you now have " + str(player1_total)+  " in this round")
+                                print("and in total you have "+ str(die_player1.total_amount))
+                                print("------------------------------------")
+                        case 2:
+                            die_player1.add_to_total(player1_total)
                             player1_total = 0
-                            print("round score set to 0. Computers turn")
-                            print("-------------------------------------")
+                            print("Computers turn!")
                             break
-                        elif(sum > 1):
+                        case 3:
+                            print("you chose to exit game!")
+                            return
+                        case 4:
+                            sum = die_player1.roll_dice_cheat()
+                            print(f"you got a {sum}. wow, what are the odds!?")
                             player1_total += sum
-                            print("you now have " + str(player1_total)+  " in this round")
-                            print("and in total you have "+ str(die_player1.total_amount))
-                            print("------------------------------------")
-                    elif (selection == 2):
-                        die_player1.add_to_total(player1_total)
-                        player1_total = 0
-                        print("Computers turn!")
-                        break
-                    elif (selection == 3):
-                        print("you chose to exit game!")
-                        break
-                    elif(selection == 4):
-                        sum = die_player1.roll_dice_cheat()
-                        print(f"you got a {sum}. wow, what are the odds!?")
-                        player1_total += sum
-                        print(f"round total: {player1_total}")
+                            print(f"round total: {player1_total}")
 
                 
                 while True:
@@ -63,8 +66,8 @@ def main():
                     elif(computer_selection == 2):
                         print("computer gave up this round. pathetic")
                         break
-               
-                
+            
+            
                     
 
                 
@@ -73,7 +76,7 @@ def main():
             die_player2 = dice.Dice()
             player1_total = 0
             player2_total = 0
-            while (die_player1.total_amount < 100 or die_player2.total_amount < 100):
+            while (die_player1.total_amount != 100 or die_player2.total_amount != 100):
                 #player 1
                 while True:
                     selection = int(input("1 to throw, 2 to stop"))
@@ -97,7 +100,7 @@ def main():
                         break
                     elif (selection == 3):
                         print("you chose to exit game!")
-                        break
+                        return
                     elif(selection == 4):
                         sum = die_player1.roll_dice_cheat()
                         print(f"you got a {sum}. wow, what are the odds!?")
@@ -127,7 +130,7 @@ def main():
                         break
                     elif (selection == 3):
                         print("you chose to exit game!")
-                        break
+                        return
                     elif(selection == 4):
                         sum = die_player2.roll_dice_cheat()
                         print(f"you got a {sum}. wow, what are the odds!?")
@@ -145,10 +148,6 @@ def menu():
     print(""" 
     Welcome to the game! 
     This is the game pig!
-    The rules are : you will throw the dice and the amount will be added to your total.
-    If the dice stops on 1, you total amount for the round will be set to 0
-    first to 100 points win!
-    no cheating! (except with command "i am a cheat")
     """)
 
 def options():
@@ -158,6 +157,15 @@ def options():
     3) watch computer play itself
     4) create character
     5) view local highscores""")
+
+def look_rules():
+    print("""this is the rules to follow:
+    first to reach a 100 points win. 
+    If you roll a 1, you loose all the point earned in that round.
+    Should you choose to end your round your current points will be added to a total.
+    Once you roll a 1, it's the opponents turn to roll. 
+    You should not but you could cheat by pressing 4 when to throw the dice...
+    """)
 
     
 
