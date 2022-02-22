@@ -1,26 +1,66 @@
 # this is where all the gamemodes can be found
 
 import dice
+import random
 
 class gamemode():
 
-    def player_vs_computer(self):
-        die_computer = dice.Dice()
-        die_player1 = dice.Dice()
-        print("You will go first! enter to hit dice or hold!")
-        selection = input(str())
-        while (selection != '3'):
+    def player_play(self):
+        die_player = dice.Dice()
+        player_total = 0
+
+        while True:
+            selection = input(str("1 to throw, 2 to exit, 3 to cheat, 4 to exit game"))
             match selection:
-                case '1':     # roll dice
-                    sum = die_player1.roll_the_dice
-                    print(sum)
-                    selection = input(str())
+                case '1':
+                    sum = die_player.roll_the_dice()
+                    if (sum == 1):
+                        print(" you rolled a one, round total set to 0. Other players turn!")
+                        player_total = 0
+                        break
+                    elif (sum > 1):
+                        print(f"you rolled a {sum}, added to your total. Throw again or stop round?")
+                        player_total += sum
+                case '2':
+                    break
+                case '3':
+                    sum = die_player.roll_dice_cheat()
+                    print(f"you rolled a {sum}! what are the odds!?")
+                    player_total += sum
+                case '4':
+                    #exit game
+                    print("you chose to exit game!")
+                    player_total = 10001
+                    break
+        
+        return player_total
         
 
+    def cpu_easy(self):
+        die_computer = dice.Dice()
+        computer_total = 0
 
+        while True:
+            computer_selection = random.randint(1,2)
+            match computer_selection:
+                case 1:
+                    sum = die_computer.roll_the_dice()
+                    if (sum == 1):
+                        print(" Computer rolled a one, round total set to 0. Other players turn!")
+                        computer_total = 0
+                        break
+                    elif (sum > 1):
+                        print(f"Computer rolled a {sum}, added to the round total.")
+                        computer_total += sum
+                case 2:
+                    break
 
-    def player_vs_player():
-        return 1
+        return computer_total
+                    
 
-    def cpu_vs_cpu():
-        return 3
+    def cpu_medium():
+        die_computer_med = dice.Dice()
+        computer_total = 0
+
+        while True:
+            return 'not ready'
