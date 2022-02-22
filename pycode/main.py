@@ -4,76 +4,66 @@
 
 import dice
 import random
+import gamemodes
+
 
 def main():
 
     menu()
+    while True:
+        options()
+        x = input(str("select option: "))
+        match x:
+            case '1':
+                print("test min spel class")
+                die_playertob = dice.Dice()
+                die_computer = dice.Dice()
+                game = gamemodes.gamemode()
 
-    options()
-    x = input(str("select option "))
-    match x:
-        case '1':
-            die_player1 = dice.Dice()
-            die_computer = dice.Dice()
-            player1_total = 0
-            computer_total = 0
-            while (die_player1.total_amount < 100 or die_computer.total_amount < 100):
-                while True:
-                    selection = int(input("1 to throw, 2 to stop"))
-                    if (selection == 1):
-                        sum = die_player1.roll_the_dice()
-                        print(f"you rolled a {sum}")
-                        if (sum == 1):
-                            player1_total = 0
-                            print("round score set to 0. Computers turn")
-                            print("-------------------------------------")
-                            break
-                        elif(sum > 1):
-                            player1_total += sum
-                            print("you now have " + str(player1_total)+  " in this round")
-                            print("and in total you have "+ str(die_player1.total_amount))
-                            print("------------------------------------")
-                    elif (selection == 2):
-                        die_player1.add_to_total(player1_total)
-                        player1_total = 0
-                        print("Computers turn!")
+                while(die_playertob.show_total() < 100 and die_computer.show_total() < 100):
+                    total_points = game.player_play()
+                    print(f"{total_points}")
+                    if(total_points == 10001):
                         break
-                    elif (selection == 3):
-                        print("you chose to exit game!")
-                        break
-                    elif(selection == 4):
-                        sum = die_player1.roll_dice_cheat()
-                        print(f"you got a {sum}. wow, what are the odds!?")
-                        player1_total += sum
-                        print(f"round total: {player1_total}")
+                    die_playertob.add_to_total(total_points)
+                    print("player now has a total of: " + str(die_playertob.show_total()))
+                    print("-----------------")
+                
+                    total_points_computer = game.cpu_easy()
+                    die_computer.add_to_total(total_points_computer)
+                    print("computer now has a total of" + str(die_computer.show_total()))
+                    print("------------------")
 
-                
-                while True:
-                    computer_selection = random.randint(1,2)
-                    if(computer_selection == 1):
-                        sum_comp = die_computer.roll_the_dice()
-                        print(f"computer rolled a {sum_comp}")
-                        if(sum_comp > 1):
-                            computer_total += sum_comp
-                            print(f"computer now has a total of {computer_total} this round")
-                        elif(sum_comp == 1):
-                            computer_total = 0
-                            print("total round score set to zero. player 1 turn again")
-                            break
-                    elif(computer_selection == 2):
-                        print("computer gave up this round. pathetic")
-                        break
-               
-                
-                    
+                    if(die_playertob.show_total() > 100):
+                        print("congratz! Player actually won!")
+                    elif(die_computer.show_total() > 100):
+                        print("congratz! Computer actually won!")
+             
+            case '2':
+                die_player1 = dice.Dice()
+                die_player2 = dice.Dice()
+                game = gamemodes.gamemode()
 
-                
-        case '2':
-            print("Player vs Player")
-        case '3':
-            print("Highscores(local)")
-        case '4':
-            print("skapa karaktär här ? ")
+                while(die_player1.show_total() < 100 and die_player2.show_total() < 100):
+                    total_points_p1 = game.player_play()
+                    if(total_points_p1 == 10001):
+                        break
+                    die_player1.add_to_total(total_points_p1)
+                    print("player 1 now has a total of: " + str(die_player1.show_total()))
+                    print("-----------------")
+
+                    total_points_p2 = game.player_play()
+                    if(total_points_p2 == 10001):
+                        break
+                    die_player2.add_to_total(total_points_p2)
+                    print("player 2 now has a total of: " + str(die_player2.show_total()))
+                    print("-----------------")
+            case '3':
+                return 3
+            case '4':
+                print("skapa karaktär här ? ")
+            case '5':
+                quit()
 
             
 
@@ -82,10 +72,6 @@ def menu():
     print(""" 
     Welcome to the game! 
     This is the game pig!
-    The rules are : you will throw the dice and the amount will be added to your total.
-    If the dice stops on 1, you total amount for the round will be set to 0
-    first to 100 points win!
-    no cheating! (except with command "i am a cheat")
     """)
 
 def options():
@@ -95,6 +81,15 @@ def options():
     3) watch computer play itself
     4) create character
     5) view local highscores""")
+
+def look_rules():
+    print("""this is the rules to follow:
+    first to reach a 100 points win. 
+    If you roll a 1, you loose all the point earned in that round.
+    Should you choose to end your round your current points will be added to a total.
+    Once you roll a 1, it's the opponents turn to roll. 
+    You should not but you could cheat by pressing 4 when to throw the dice...
+    """)
 
     
 

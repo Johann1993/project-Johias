@@ -28,6 +28,8 @@ class Dice():
         self.total_amount += one_round_total
 
 
+
+
         
 
 
