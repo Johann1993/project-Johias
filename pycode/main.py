@@ -77,7 +77,7 @@ def menu():
 def options():
     print("""This is your options:
     1) play game vs computer
-    2)play game vs other player
+    2) play game vs other player
     3) watch computer play itself
     4) create character
     5) view local highscores""")
