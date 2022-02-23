@@ -63,4 +63,16 @@ class gamemode():
         computer_total = 0
 
         while True:
-            return 'not ready'
+            sum = die_computer_med.roll_the_dice()
+            if(sum == 1):
+                print("Computer rolled a 1. round score set to 0")
+                computer_total = 0
+                break
+            elif (sum > 1):
+                if(computer_total > 10 and die_computer_med.my_rolls_amount > 3):
+                    computer_total += sum
+                    break
+                else:
+                    computer_total += sum
+
+        return computer_total
