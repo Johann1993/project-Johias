@@ -5,6 +5,7 @@
 import dice
 import random
 import gamemodes
+import time
 
 
 def main():
@@ -19,15 +20,19 @@ def main():
                 die_player1 = dice.Dice()
                 die_computer = dice.Dice()
                 game = gamemodes.gamemode()
+
                 while True:
+
                     try:
-                        choose_difficulty = int(input("select difficulty. 1 for easy , 2 for medium"))
+                        choose_difficulty = int(input("select difficulty. 1 for easy , 2 for medium: "))
+                        print(" ")
                         if(choose_difficulty > 2):
                             print("bad input. select 1 or 2!")
                         else:
                             break
                     except:
                         print("only enter numbers!")
+
                 while(die_player1.show_total() < 100 and die_computer.show_total() < 100):
 
                     total_points = game.player_play()
@@ -36,20 +41,21 @@ def main():
 
                     die_player1.add_to_total(total_points)
                     print("player now has a total of: " + str(die_player1.show_total()))
-                    print("-----------------")
+                    print("------------------------------")
 
                     if(choose_difficulty == 1):
-                        print("easy bot")
                         total_points_computer = game.cpu_easy()
                         die_computer.add_to_total(total_points_computer)
-                        print("computer now has a total of" + str(die_computer.show_total()))
-                        print("------------------")
+                        print("computer now has a total of: " + str(die_computer.show_total()))
+                        print("--------------------------------")
+                        time.sleep(2)
                     elif(choose_difficulty == 2):
-                        print("medium bot")
                         total_points_computer = game.cpu_medium()
                         die_computer.add_to_total(total_points_computer)
-                        print("computer now has a total of" + str(die_computer.show_total()))
-                        print("------------------")
+                        print("computer now has a total of: " + str(die_computer.show_total()))
+                        print("--------------------------------")
+                        time.sleep(2)
+
 
                     if(die_player1.show_total() > 100):
                         print("congratz! Player actually won!")
@@ -80,9 +86,9 @@ def main():
                     print("-----------------")
 
             case '3':
-                return 3
+                print("highscores will be shown here")
             case '4':
-                print("skapa karaktär här ? ")
+                game.see_rules()
             case '5':
                 quit()
 
@@ -99,18 +105,11 @@ def options():
     print("""This is your options:
     1) play game vs computer
     2) play game vs other player
-    3) watch computer play itself
-    4) create character
-    5) view local highscores""")
+    3) view local highscores 
+    4) view rules
+    5) exit to desktop""")
 
-def see_rules():
-    print("""this is the rules to follow:
-    first to reach a 100 points win. 
-    If you roll a 1, you loose all the point earned in that round.
-    Should you choose to end your round your current points will be added to a total.
-    Once you roll a 1, it's the opponents turn to roll. 
-    You should not but you could cheat by pressing 4 when to throw the dice...
-    """)
+
 
     
 
