@@ -10,28 +10,31 @@ class gamemode():
         player_total = 0
 
         while True:
-            selection = input(str("1 to throw, 2 to exit, 3 to cheat, 4 to exit game"))
-            match selection:
-                case '1':
-                    sum = die_player.roll_the_dice()
-                    if (sum == 1):
-                        print(" you rolled a one, round total set to 0. Other players turn!")
-                        player_total = 0
+            try:
+                selection = input(str("1 to throw, 2 to exit, 3 to cheat, 4 to exit game: "))
+                match selection:
+                    case '1':
+                        sum = die_player.roll_the_dice()
+                        if (sum == 1):
+                            print(" you rolled a one, round total set to 0. Other players turn!")
+                            player_total = 0
+                            break
+                        elif (sum > 1):
+                            print(f"you rolled a {sum}, added to your total. Throw again or stop round?")
+                            player_total += sum
+                    case '2':
                         break
-                    elif (sum > 1):
-                        print(f"you rolled a {sum}, added to your total. Throw again or stop round?")
+                    case '3':
+                        sum = die_player.roll_dice_cheat()
+                        print(f"you rolled a {sum}! what are the odds!?")
                         player_total += sum
-                case '2':
-                    break
-                case '3':
-                    sum = die_player.roll_dice_cheat()
-                    print(f"you rolled a {sum}! what are the odds!?")
-                    player_total += sum
-                case '4':
-                    #exit game
-                    print("you chose to exit game!")
-                    player_total = 10001
-                    break
+                    case '4':
+                        #exit game
+                        print("you chose to exit game!")
+                        player_total = 10001
+                        break
+            except TypeError:
+                print("pressed invalid key!")
         
         return player_total
         
