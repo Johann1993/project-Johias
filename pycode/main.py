@@ -29,7 +29,7 @@ def main():
                     print("player now has a total of: " + str(die_playertob.show_total()))
                     print("-----------------")
                 
-                    total_points_computer = game.cpu_easy()
+                    total_points_computer = game.cpu_medium()
                     die_computer.add_to_total(total_points_computer)
                     print("computer now has a total of" + str(die_computer.show_total()))
                     print("------------------")
@@ -82,7 +82,7 @@ def options():
     4) create character
     5) view local highscores""")
 
-def look_rules():
+def see_rules():
     print("""this is the rules to follow:
     first to reach a 100 points win. 
     If you roll a 1, you loose all the point earned in that round.

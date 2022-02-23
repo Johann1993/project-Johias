@@ -58,7 +58,7 @@ class gamemode():
         return computer_total
                     
 
-    def cpu_medium():
+    def cpu_medium(self):
         die_computer_med = dice.Dice()
         computer_total = 0
 
@@ -69,7 +69,11 @@ class gamemode():
                 computer_total = 0
                 break
             elif (sum > 1):
-                if(computer_total > 10 and die_computer_med.my_rolls_amount > 3):
+                print(f"Computer rolled a {sum}")
+                if(computer_total > 10 and die_computer_med.my_rolls_amount >= 3):
+                    computer_total += sum
+                    break
+                elif(computer_total > 12 and die_computer_med.my_rolls_amount == 2):
                     computer_total += sum
                     break
                 else:
