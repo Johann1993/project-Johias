@@ -102,6 +102,7 @@ def Player_vs_Player():
     while(die_player1.show_total() < 100 and die_player2.show_total() < 100):
         playerRoundTotal = 0
         player2RoundTotal = 0
+
         while True:
             selection = input(str(" 1) To throw \n 2) End round \n 3) To cheat \n 4) See rules \n 5) Exit gamemode \n Your option: "))
             print(" ")
