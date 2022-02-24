@@ -27,3 +27,5 @@ class TestGamemodesClass(unittest.TestCase):
         self.assertTrue(expected)
 
 
+if __name__ == "__main__":
+    unittest.main()
