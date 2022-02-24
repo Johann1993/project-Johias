@@ -3,7 +3,6 @@
 
 
 import dice
-import random
 import gamemodes
 import time
 
@@ -108,10 +107,6 @@ def options():
     3) view local highscores 
     4) view rules
     5) exit to desktop""")
-
-
-
-    
 
 if __name__ == '__main__':
     # Call the main function.
