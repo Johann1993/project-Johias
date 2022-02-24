@@ -13,11 +13,9 @@ def main():
         x = input(str("select option: "))
         match x:
             case '1':
-               gamemodes.player_vs_bot()
-               
+                gamemodes.player_vs_bot()
             case '2':
                 gamemodes.Player_vs_Player()
-
             case '3':
                 print("highscores will be shown here")
             case '4':
