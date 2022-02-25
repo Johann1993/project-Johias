@@ -40,6 +40,7 @@ def options():
     4) view rules
     5) exit to desktop""")
 
+
 def see_rules():
         print("""this is the rules to follow:
         first to reach a 100 points win. 
@@ -49,10 +50,11 @@ def see_rules():
         You should not but you could cheat by pressing 4 when to throw the dice...
         """)
 
-def print_rolles_endgame(diePlayer,dieCpu):
+
+def print_rolles_endgame(diePlayer, dieCpu):
     print(f"You threw the dice {diePlayer.show_amount_rolls()} times")
     print(f"Computer has thrown the dice:{dieCpu.show_amount_rolls()}")
-    
+
 
 if __name__ == '__main__':
     # Call the main function.
