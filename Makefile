@@ -60,8 +60,8 @@ clean-all: clean clean-doc
 #
 pylint:
 	@$(call MESSAGE,$@)
-	-cd guess && $(PYTHON) -m pylint *.py
-
+	-cd pycode && $(PYTHON) -m pylint *.py    
+ # ÄNDRADE HÄR FRÅN GUESS TILL PYCODE
 flake8:
 	@$(call MESSAGE,$@)
 	-flake8
@@ -90,7 +90,7 @@ test: lint coverage
 #
 black:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m black guess/ test/
+	 $(PYTHON) -m black pycode/ test/
 
 codestyle: black
 
