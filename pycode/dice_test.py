@@ -8,7 +8,7 @@ import dice
 class TestDiceClass(unittest.TestCase):
 
     def test_default_object(self):
-        #create an object and check values true or not
+        # create an object and check values true or not
         die = dice.Dice()
 
         self.assertIsInstance(die, dice.Dice)
@@ -48,6 +48,6 @@ class TestDiceClass(unittest.TestCase):
         expected_sum = 5
         self.assertEqual(sum, expected_sum)
 
+
 if __name__ == "__main__":
     unittest.main()
-

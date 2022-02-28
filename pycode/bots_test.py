@@ -5,12 +5,13 @@ import unittest
 import botLevels
 import dice
 
+
 class TestGamemodesClass(unittest.TestCase):
 
     def test_bot_easy(self):
         botTest = dice.Dice()
         game = botLevels.botDifficulty()
-        
+
         sum = game.cpu_easy(botTest)
         expected = 0 <= sum <= 100
         self.assertTrue(expected)

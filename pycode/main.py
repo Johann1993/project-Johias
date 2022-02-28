@@ -1,9 +1,7 @@
 # this is our main py file to run the game
 # . .venv/Scripts/activate     active venv in bash
-
-
-import dice
 import gamemodes
+
 
 def main():
 
@@ -24,31 +22,32 @@ def main():
                 quit()
 
 
-
-
 def menu():
-    print(""" 
-    Welcome to the game! 
+    print("""
+    Welcome to the game!
     This is the game pig!
     """)
+
 
 def options():
     print("""This is your options:
     1) play game vs computer
     2) play game vs other player
-    3) view local highscores 
+    3) view local highscores
     4) view rules
     5) exit to desktop""")
 
 
 def see_rules():
-        print("""this is the rules to follow:
-        first to reach a 100 points win. 
-        If you roll a 1, you loose all the points earned in that round.
-        Should you choose to end your round your current points will be added to a total.
-        Once you roll a 1 or choose to end your round, it's the opponents turn to roll. 
-        You should not but you could cheat by pressing 4 when to throw the dice...
-        """)
+    print("""this is the rules to follow:
+    first to reach a 100 points win.
+    If you roll a 1, you loose all the points earned in that round.
+    Should you choose to end your round your current points
+    will be added to a total.
+    Once you roll a 1 or choose to end your round, it's the
+    opponents turn to roll.
+    You should not but you could cheat by pressing 4 when to throw the dice...
+    """)
 
 
 def print_rolles_endgame(diePlayer, dieCpu):

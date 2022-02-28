@@ -1,17 +1,16 @@
 
 
-import dice
 import time
 import random
 
-class botDifficulty():
-        
 
-    def cpu_easy(self,die_computer):
+class botDifficulty():
+
+    def cpu_easy(self, die_computer):
         computer_total = 0
 
         while True:
-            computer_selection = random.randint(1,2)
+            computer_selection = random.randint(1, 2)
             match computer_selection:
                 case 1:
                     sum = die_computer.roll_the_dice()
@@ -28,9 +27,8 @@ class botDifficulty():
                     break
 
         return computer_total
-                    
 
-    def cpu_medium(self,die_computer):
+    def cpu_medium(self, die_computer):
         computer_total = 0
 
         while True:
@@ -52,5 +50,5 @@ class botDifficulty():
                     break
                 else:
                     computer_total += sum
-                    
+
         return computer_total

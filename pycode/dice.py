@@ -27,19 +27,5 @@ class Dice():
     def show_amount_rolls(self):
         return self.my_rolls_amount
 
-    def add_to_total(self,one_round_total):
+    def add_to_total(self, one_round_total):
         self.total_amount += one_round_total
-
-    
-
-
-
-
-        
-
-
-
-
-
-
-
