@@ -1,12 +1,18 @@
-
-
+"""Python file for AI bots."""
 import time
 import random
 
 
 class botDifficulty():
+    """This class contains the AI for how the bots operates."""
 
     def cpu_easy(self, die_computer):
+        """
+        Contains a easy-level AI.
+
+        To play against, with a dice object as
+        parameter and that returns a round score.
+        """
         computer_total = 0
 
         while True:
@@ -15,11 +21,13 @@ class botDifficulty():
                 case 1:
                     sum = die_computer.roll_the_dice()
                     if (sum == 1):
-                        print(" Computer rolled a 1, round total set to 0. Other players turn!")
+                        print("""Computer rolled a 1,
+                        round total set to 0. Other players turn!""")
                         computer_total = 0
                         break
                     elif (sum > 1):
-                        print(f"Computer rolled a {sum}, added to the round total.")
+                        print(f"""Computer rolled a
+                        {sum}, added to the round total.""")
                         computer_total += sum
                         time.sleep(2)
                 case 2:
@@ -29,6 +37,12 @@ class botDifficulty():
         return computer_total
 
     def cpu_medium(self, die_computer):
+        """
+        Contains a medium-level AI.
+
+        To play against, with a dice object as parameter
+        and that returns a rounds score.
+        """
         computer_total = 0
 
         while True:
@@ -44,7 +58,8 @@ class botDifficulty():
                     print("computer chose to stop round!")
                     computer_total += sum
                     break
-                elif(computer_total > 12 and die_computer.my_rolls_amount == 2):
+                elif(computer_total > 12 and
+                     die_computer.my_rolls_amount == 2):
                     print("computer chose to stop round!")
                     computer_total += sum
                     break
