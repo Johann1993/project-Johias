@@ -51,7 +51,7 @@ class BotDifficulty():
                 print(f"Computer rolled a {result}")
                 time.sleep(2)
                 if (computer_total == 12 and
-                    die_computer.my_rolls_amount == 2):
+                   die_computer.my_rolls_amount == 2):
                     print("computer chose to stop round!")
                     computer_total += result
                     break

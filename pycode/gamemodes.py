@@ -28,53 +28,17 @@ def player_vs_bot():
             print("only enter numbers!")
 
     while(die_player1.show_total() < 100 and die_computer.show_total() < 100):
-        player_round_total = 0
+
         end_game = 0
-        while True:
-            selection = input(str(""" 1) To throw \n 2) End round \n 3) To cheat \n
-            4) See rules \n 5) Exit gamemode \n Your option: """))
-            print(" ")
-            match selection:
-                case '1':
-                    diescore = die_player1.roll_the_dice()
-                    if diescore >= 2:
-                        print(f"""your roll: {diescore}, added to your round total of:
-                        {diescore + player_round_total},
-                        Throw again or stop round?""")
-                        print("""--------------------------------------
-                        -------------------------------------------""")
-                        player_round_total += diescore
-                    elif diescore == 1:
-                        print("""You rolled a 1, round total reset to 0.
-                        Other players turn!""")
-                        print("""-----------------------------
-                        -------------------------------""")
-                        player_round_total = 0
-                        break
+        result = player_round(die_player1)
+        die_player1.add_to_total(result)
 
-                case '2':
-                    die_player1.add_to_total(player_round_total)
-                    print(f"""you now have a total of :
-                    {die_player1.show_total()}""")
-                    print("---------------------------------------")
-                    break
-                case '3':
-                    diescore = die_player1.roll_dice_cheat()
-                    print(f"you rolled a {diescore}! what are the odds!?")
-                    print("----------------------------------------")
-                    player_round_total += diescore
-                case '4':
-                    see_rules()
-                case '5':
-                    break
-
-        if selection == '5':
+        if result == 10001:
             print("you chose to exit game!")
             print("---------------------------")
             end_game = 1
             break
-
-        if end_game == 0:
+        else:
             if choose_difficulty == 1:
                 total_points_computer = game.cpu_easy(die_computer)
                 die_computer.add_to_total(total_points_computer)
@@ -115,94 +79,82 @@ def player_vs_player():
     die_player2 = dice.Dice()
 
     while(die_player1.show_total() < 100 and die_player2.show_total() < 100):
-        player_round_total = 0
-        player2_round_total = 0
 
-        while True:
-            selection = input(str(""" 1) To throw \n 2) End round \n 3) To cheat \n
-            4) See rules \n 5) Exit gamemode \n Your option: """))
-            print(" ")
-            match selection:
-                case '1':
-                    diescore = die_player1.roll_the_dice()
-                    if diescore >= 2:
-                        print(f"""your roll: {diescore}, added to your round total of:
-                        {diescore + player_round_total},
-                        Throw again or stop round?""")
-                        print("""----------------------------------------
-                        -----------------------------------------""")
-                        player_round_total += diescore
-                    elif diescore == 1:
-                        print("""You rolled a 1, round total reset to 0.
-                        Other players turn!""")
-                        print("""------------------------------
-                        ------------------------------""")
-                        player_round_total = 0
-                        break
+        result = player_round(die_player1)
+        die_player1.add_to_total(result)
+        if result == 10001:
+            print("PPlayer 1 chose to exit game!")
+            print("---------------------------")
+            break
 
-                case '2':
-                    die_player1.add_to_total(player_round_total)
-                    print(f"""you now have a total of :
-                    {die_player1.show_total()}""")
-                    print("---------------------------------------")
-                    break
-                case '3':
-                    diescore = die_player1.roll_dice_cheat()
-                    print(f"you rolled a {diescore}! what are the odds!?")
-                    print("----------------------------------------")
+        result_player2 = player_round(die_player2)
+        die_player2.add_to_total(result_player2)
+
+        if result_player2 == 10001:
+            print("Player 2 chose to exit game!")
+            print("---------------------------")
+            break
+
+    if result != 10001 and result_player2 != 10001:
+        if die_player1.show_total() > 100:
+            print("congratz! Player 1 actually won!")
+            print_rolles_endgame_1vs1(die_player1, die_player2)
+        elif die_player2.show_total() > 100:
+            print("congratz! Computer actually won!")
+            print_rolles_endgame_1vs1(die_player1, die_player2)
+        elif die_player1.show_total() > 100 and die_player2.show_total() > 100:
+            print("it's a tie!")
+            print_rolles_endgame_1vs1(die_player1, die_player2)
+
+
+def player_round(die_player):
+    """
+    Player function.
+
+    This method contains the options for
+    a players and score counting
+    """
+    player_round_total = 0
+    while True:
+        selection = input(str(""" 1) To throw \n 2) End round \n 3) To cheat \n
+        4) See rules \n 5) Exit gamemode \n Your option: """))
+        print(" ")
+        match selection:
+            case '1':
+                diescore = die_player.roll_the_dice()
+                if diescore >= 2:
+                    print(f"""your roll: {diescore}, added to your round total of:
+                    {diescore + player_round_total},
+                    Throw again or stop round?""")
+                    print("""----------------------------------------------------
+                    -----------------------------""")
                     player_round_total += diescore
-                case '4':
-                    see_rules()
-                case '5':
+                elif diescore == 1:
+                    print("""You rolled a 1, round total
+                    reset to 0. Other players turn!""")
+                    print("""------------------------------
+                    ------------------------------""")
+                    player_round_total = 0
                     break
 
-        while True:
-            selection = input(str(""" 1) To throw \n 2) End round \n 3) To cheat \n
-            4) See rules \n 5) Exit gamemode \n Your option: """))
-            print(" ")
-            match selection:
-                case '1':
-                    diescore = die_player2.roll_the_dice()
-                    if diescore >= 2:
-                        print(f"""your roll: {diescore}, added to your round total of:
-                        {diescore + player2_round_total},
-                        Throw again or stop round?""")
-                        print("""----------------------------------------------------
-                        -----------------------------""")
-                        player2_round_total += diescore
-                    elif diescore == 1:
-                        print("""You rolled a 1, round total
-                        reset to 0. Other players turn!""")
-                        print("""------------------------------
-                        ------------------------------""")
-                        player_round_total = 0
-                        break
+            case '2':
+                die_player.add_to_total(player_round_total)
+                print(f"""you now have a total of :
+                {die_player.show_total()}""")
+                print("---------------------------------------")
+                break
+            case '3':
+                diescore = die_player.roll_dice_cheat()
+                print(f"you rolled a {diescore}! what are the odds!?")
+                print("----------------------------------------")
+                player_round_total += diescore
+            case '4':
+                see_rules()
+            case '5':
+                player_round_total = 10001
+                break
 
-                case '2':
-                    die_player2.add_to_total(player2_round_total)
-                    print(f"""you now have a total of :
-                    {die_player2.show_total()}""")
-                    print("---------------------------------------")
-                    break
-                case '3':
-                    diescore = die_player2.roll_dice_cheat()
-                    print(f"you rolled a {diescore}! what are the odds!?")
-                    print("----------------------------------------")
-                    player2_round_total += diescore
-                case '4':
-                    see_rules()
-                case '5':
-                    break
-
-    if die_player1.show_total() > 100:
-        print("congratz! Player 1 actually won!")
-        print_rolles_endgame_1vs1(die_player1, die_player2)
-    elif die_player2.show_total() > 100:
-        print("congratz! Computer actually won!")
-        print_rolles_endgame_1vs1(die_player1, die_player2)
-    elif die_player1.show_total() > 100 and die_player2.show_total() > 100:
-        print("it's a tie!")
-        print_rolles_endgame_1vs1(die_player1, die_player2)
+    return player_round_total
 
 
 def print_rolles_endgame(die_player, die_cpu):
