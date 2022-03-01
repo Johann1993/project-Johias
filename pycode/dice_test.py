@@ -47,9 +47,9 @@ class TestDiceClass(unittest.TestCase):
         """Check dice cheat returns highest possible value."""
         die = dice.Dice()
 
-        cheatRes = die.roll_dice_cheat()
+        cheat_res = die.roll_dice_cheat()
         expected = 6
-        self.assertEqual(cheatRes, expected)
+        self.assertEqual(cheat_res, expected)
 
     def test_show_total(self):
         """Check that starting score of dice is 0."""
@@ -65,9 +65,9 @@ class TestDiceClass(unittest.TestCase):
         die = dice.Dice()
 
         die.add_to_total(5)
-        sum = die.show_total()
+        result = die.show_total()
         expected_sum = 5
-        self.assertEqual(sum, expected_sum)
+        self.assertEqual(result, expected_sum)
 
 
 if __name__ == "__main__":

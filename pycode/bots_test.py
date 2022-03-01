@@ -3,7 +3,7 @@
 """Python file for running test on bots."""
 
 import unittest
-import botLevels
+import bot_levels
 import dice
 
 
@@ -20,11 +20,11 @@ class TestGamemodesClass(unittest.TestCase):
 
         Runs a round to see that it scores.
         """
-        botTest = dice.Dice()
-        game = botLevels.botDifficulty()
+        bot_test = dice.Dice()
+        game = bot_levels.BotDifficulty()
 
-        sum = game.cpu_easy(botTest)
-        expected = 0 <= sum <= 100
+        result = game.cpu_easy(bot_test)
+        expected = 0 <= result <= 100
         self.assertTrue(expected)
 
     def test_bot_medium(self):
@@ -33,11 +33,11 @@ class TestGamemodesClass(unittest.TestCase):
 
         Bot then runs a round to see if it works.
         """
-        game = botLevels.botDifficulty()
-        botTest = dice.Dice()
+        game = bot_levels.BotDifficulty()
+        bot_test = dice.Dice()
 
-        sum = game.cpu_medium(botTest)
-        expected = 0 <= sum <= 100
+        result = game.cpu_medium(bot_test)
+        expected = 0 <= result <= 100
         self.assertTrue(expected)
 
 

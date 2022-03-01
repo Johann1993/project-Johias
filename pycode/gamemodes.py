@@ -2,8 +2,7 @@
 
 import time
 import dice
-import botLevels
-
+import bot_levels
 
 
 def player_vs_bot():
@@ -14,14 +13,14 @@ def player_vs_bot():
     """
     die_player1 = dice.Dice()
     die_computer = dice.Dice()
-    game = botLevels.botDifficulty()
+    game = bot_levels.BotDifficulty()
 
     while True:
         try:
             choose_difficulty = int(input("""select difficulty.
             1 for easy , 2 for medium: """))
             print(" ")
-            if(choose_difficulty > 2):
+            if choose_difficulty > 2:
                 print("bad input. select 1 or 2!")
             else:
                 break
@@ -38,14 +37,14 @@ def player_vs_bot():
             match selection:
                 case '1':
                     diescore = die_player1.roll_the_dice()
-                    if(diescore >= 2):
+                    if diescore >= 2:
                         print(f"""your roll: {diescore}, added to your round total of:
                         {diescore + player_round_total},
                         Throw again or stop round?""")
                         print("""--------------------------------------
                         -------------------------------------------""")
                         player_round_total += diescore
-                    elif(diescore == 1):
+                    elif diescore == 1:
                         print("""You rolled a 1, round total reset to 0.
                         Other players turn!""")
                         print("""-----------------------------
@@ -69,21 +68,21 @@ def player_vs_bot():
                 case '5':
                     break
 
-        if(selection == '5'):
+        if selection == '5':
             print("you chose to exit game!")
             print("---------------------------")
             end_game = 1
             break
 
-        if(end_game == 0):
-            if(choose_difficulty == 1):
+        if end_game == 0:
+            if choose_difficulty == 1:
                 total_points_computer = game.cpu_easy(die_computer)
                 die_computer.add_to_total(total_points_computer)
                 print(f"""computer now has a total of:
                 {die_computer.show_total()}""")
                 print("--------------------------------")
                 time.sleep(2)
-            elif(choose_difficulty == 2):
+            elif choose_difficulty == 2:
                 total_points_computer = game.cpu_medium(die_computer)
                 die_computer.add_to_total(total_points_computer)
                 print(f"""computer now has a total of:
@@ -91,12 +90,12 @@ def player_vs_bot():
                 print("--------------------------------")
                 time.sleep(2)
 
-        if(end_game == 0):
-            if(die_player1.show_total() > 100):
+        if end_game == 0:
+            if die_player1.show_total() > 100:
                 print("congratz! Player actually won!")
                 print_rolles_endgame(die_player1, die_computer)
 
-            elif(die_computer.show_total() > 100):
+            elif die_computer.show_total() > 100:
                 print("congratz! Computer actually won!")
                 print_rolles_endgame(die_player1, die_computer)
 
@@ -126,14 +125,14 @@ def player_vs_player():
             match selection:
                 case '1':
                     diescore = die_player1.roll_the_dice()
-                    if(diescore >= 2):
+                    if diescore >= 2:
                         print(f"""your roll: {diescore}, added to your round total of:
                         {diescore + player_round_total},
                         Throw again or stop round?""")
                         print("""----------------------------------------
                         -----------------------------------------""")
                         player_round_total += diescore
-                    elif(diescore ==1):
+                    elif diescore == 1:
                         print("""You rolled a 1, round total reset to 0.
                         Other players turn!""")
                         print("""------------------------------
@@ -164,14 +163,14 @@ def player_vs_player():
             match selection:
                 case '1':
                     diescore = die_player2.roll_the_dice()
-                    if(diescore >=2):
+                    if diescore >= 2:
                         print(f"""your roll: {diescore}, added to your round total of:
                         {diescore + player2_round_total},
                         Throw again or stop round?""")
                         print("""----------------------------------------------------
                         -----------------------------""")
                         player2_round_total += diescore
-                    elif(diescore ==1):
+                    elif diescore == 1:
                         print("""You rolled a 1, round total
                         reset to 0. Other players turn!""")
                         print("""------------------------------
@@ -195,13 +194,13 @@ def player_vs_player():
                 case '5':
                     break
 
-    if(die_player1.show_total() > 100):
+    if die_player1.show_total() > 100:
         print("congratz! Player 1 actually won!")
         print_rolles_endgame_1vs1(die_player1, die_player2)
-    elif(die_player2.show_total() > 100):
+    elif die_player2.show_total() > 100:
         print("congratz! Computer actually won!")
         print_rolles_endgame_1vs1(die_player1, die_player2)
-    elif(die_player1.show_total() > 100 and die_player2.show_total() > 100):
+    elif die_player1.show_total() > 100 and die_player2.show_total() > 100:
         print("it's a tie!")
         print_rolles_endgame_1vs1(die_player1, die_player2)
 
