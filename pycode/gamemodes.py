@@ -52,7 +52,7 @@ def player_vs_bot():
                 print(f"""computer now has a total of:
                 {die_computer.show_total()}""")
                 print("--------------------------------")
-                time.sleep(2)
+                time.sleep(2) 
 
         if end_game == 0:
             if die_player1.show_total() > 100:
@@ -71,7 +71,7 @@ def player_vs_bot():
 
 def player_vs_player():
     """
-    When selecting to play two players against eachother.
+    When selecting to play two players against each other.
 
     This method will run that gamemode.
     """
