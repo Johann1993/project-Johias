@@ -73,7 +73,7 @@ def player_vs_player():
     """
     When selecting to play two players against each other.
 
-    This method will run that gamemode.
+    This method will run the gamemode.
     """
     die_player1 = dice.Dice()
     die_player2 = dice.Dice()
@@ -83,7 +83,7 @@ def player_vs_player():
         result = player_round(die_player1)
         die_player1.add_to_total(result)
         if result == 10001:
-            print("PPlayer 1 chose to exit game!")
+            print("Player 1 chose to exit game!")
             print("---------------------------")
             break
 
@@ -112,12 +112,12 @@ def player_round(die_player):
     Player function.
 
     This method contains the options for
-    a players and score counting
+    a players round and score counting
     """
     player_round_total = 0
     while True:
         selection = input(str(""" 1) To throw \n 2) End round \n 3) To cheat \n
-        4) See rules \n 5) Exit gamemode \n Your option: """))
+        4) See rules \n 5) change dice highest value \n 6) Exit gamemode \n Your option: """))
         print(" ")
         match selection:
             case '1':
@@ -151,6 +151,9 @@ def player_round(die_player):
             case '4':
                 see_rules()
             case '5':
+                new_value = int(input("enter new highest value on the dice: "))
+                die_player.change_highest_value(new_value)
+            case '6':
                 player_round_total = 10001
                 break
 

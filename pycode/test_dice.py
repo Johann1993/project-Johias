@@ -69,6 +69,16 @@ class TestDiceClass(unittest.TestCase):
         expected_sum = 5
         self.assertEqual(result, expected_sum)
 
+    def test_change_dice_value(self):
+        """Test to change highest dice roll value."""
+        die = dice.Dice()
+
+        start_value = die.roll_dice_cheat()
+        die.change_highest_value(20)
+        new_value = die.roll_dice_cheat()
+        
+        self.assertNotEqual(start_value, new_value)
+
 
 if __name__ == "__main__":
     unittest.main()

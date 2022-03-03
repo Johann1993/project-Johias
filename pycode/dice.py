@@ -66,3 +66,10 @@ class Dice():
         Method has a parameter for current round points.
         """
         self.total_amount += one_round_total
+
+    def change_highest_value(self,new_value):
+        self.max_amount = new_value
+
+
+
+
