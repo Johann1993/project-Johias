@@ -45,14 +45,14 @@ def player_vs_bot():
                 print(f"""computer now has a total of:
                 {die_computer.show_total()}""")
                 print("--------------------------------")
-                time.sleep(2)
+                time.sleep(1)
             elif choose_difficulty == 2:
                 total_points_computer = game.cpu_medium(die_computer)
                 die_computer.add_to_total(total_points_computer)
                 print(f"""computer now has a total of:
                 {die_computer.show_total()}""")
                 print("--------------------------------")
-                time.sleep(2) 
+                time.sleep(1)
 
         if end_game == 0:
             if die_player1.show_total() > 100:
@@ -117,7 +117,8 @@ def player_round(die_player):
     player_round_total = 0
     while True:
         selection = input(str(""" 1) To throw \n 2) End round \n 3) To cheat \n
-        4) See rules \n 5) change dice highest value \n 6) Exit gamemode \n Your option: """))
+        4) See rules \n 5) change dice highest value \n
+        6) Exit gamemode \n Your option: """))
         print(" ")
         match selection:
             case '1':

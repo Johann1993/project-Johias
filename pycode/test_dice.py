@@ -76,8 +76,23 @@ class TestDiceClass(unittest.TestCase):
         start_value = die.roll_dice_cheat()
         die.change_highest_value(20)
         new_value = die.roll_dice_cheat()
-        
+
         self.assertNotEqual(start_value, new_value)
+
+    def test_show_number_rolls(self):
+        """Test to retrieve number of rolls."""
+
+        die = dice.Dice()
+
+        expected = 4
+        rolls = 0
+        while rolls <= 3:
+            die.roll_the_dice()
+            rolls += 1
+
+        total_rolls = die.show_amount_rolls()
+
+        self.assertEqual(total_rolls, expected)
 
 
 if __name__ == "__main__":

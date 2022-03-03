@@ -67,9 +67,6 @@ class Dice():
         """
         self.total_amount += one_round_total
 
-    def change_highest_value(self,new_value):
+    def change_highest_value(self, new_value):
+        """Change highest possible roll value."""
         self.max_amount = new_value
-
-
-
-
