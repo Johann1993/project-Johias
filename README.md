@@ -39,9 +39,49 @@ Project information and structure.
 
 This game was developed as a TDD (test driven development) 
 inside the project folder called pycode one can find all the python code files being used,both for the game and tests.
+main.py file you can see how the game is structured and go from there. We have kept main as simple as possible by implementing    
+gamemode in other classes to easier follow up the different parts. 
+gamemodes.py is where the different gamemode can be found if you'd like to see their structure.
+dice.py is the object created to play the game and get points. 
+bot_levels.py contains the two avaiable bots difficulty. this is basically their "brain" structure.
 
 There is a requirements txt file containing all the software needed to perform tests and run the game. 
 In the makefile one can find the structure of how the tests are implmented and how they operate.
+Release.md is a text file containing all the different version of the game that has been developt. From here you can see
+follow the history of our development of the game. 
+
+LÄGG TILL HUR MAN INSTALLERAR SPELET HÄR !!!!!!!!!!!!!!!!!!!!!!!!
+
+========================================================================================================
+
+Unittesting.
+
+If one desires to test our program it is available to do so. here is a guide on how. 
+
+1. Open terminal
+2. enter project-Johias folder, then enter folder pycode
+3. Activate virtual enviroment using this command :  . .venv/Scripts/activate
+4. enter command one at a time : 
+    - make flake8 (tests the structure of the code)
+    - make pylint (also tests the structure of the code)
+    - make lint (test both flake8 and pylint at once)
+    - make coverage (LÄGG TILL FÖRKLARING)
+    - make NÅGOT MER HÄR
+5. 
+
+Documentation by docstring guide.
+
+In case you would like to look at the documentation and layout of our program follow these steps. 
+1. Enter pycode folder
+2. enter : make browserdoc
+3. then follow the steps in terminal
+
+If one would like to see the complete pydoc documentation
+1. enter : make doc
+2. there will be a pydoc folder created in pycode folder containing html files of all classes.
+
+
+
 
 
 

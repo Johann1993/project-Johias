@@ -1,0 +1,8 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"bot_levels.BotDifficulty" [color="black", fontcolor="black", label="{BotDifficulty|\l|cpu_easy(die_computer)\lcpu_medium(die_computer)\l}", shape="record", style="solid"];
+"dice.Dice" [color="black", fontcolor="black", label="{Dice|max_amount : int\lmy_rolls_amount : int\ltotal_amount : int\l|add_to_total(one_round_total)\lroll_dice_cheat()\lroll_the_dice()\lshow_amount_rolls()\lshow_total()\l}", shape="record", style="solid"];
+"test_dice.TestDiceClass" [color="black", fontcolor="black", label="{TestDiceClass|\l|test_add_sum()\ltest_default_object()\ltest_die_cheat()\ltest_roll_die()\ltest_show_total()\l}", shape="record", style="solid"];
+"test_bots.TestGamemodesClass" [color="black", fontcolor="black", label="{TestGamemodesClass|\l|test_bot_easy()\ltest_bot_medium()\l}", shape="record", style="solid"];
+}

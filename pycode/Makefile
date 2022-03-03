@@ -114,7 +114,11 @@ pyreverse:
 	dot -Tpng packages.dot -o doc/pyreverse/packages.png
 	rm -f classes.dot packages.dot
 
-doc: pdoc pyreverse #pydoc sphinx
+browserdoc:
+	@$(call MESSAGE,$@)
+	python -m pydoc -p 1337
+
+doc: pdoc pyreverse browserdoc #pydoc sphinx
 
 
 
@@ -145,3 +149,9 @@ metrics: radon-cc radon-mi radon-raw radon-hal
 #
 bandit:
 	bandit -r .
+
+
+# ---------------------------------------------------------
+# view python documentation in browser.
+#
+
