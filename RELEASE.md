@@ -1,6 +1,16 @@
 Release history
 ========================
 
+v.1.3.3 (2022-03-06)
+------------------------
+
+* Wrote versions to release.md file
+* Wrote command to Makefile (to open pydoc in webbrowser).
+* Added testcases for dice.py and bots.py classes.
+* Added functions for gamemodes.py and bot_levels.py
+* Instructions about the game were added to Readme.md file.
+* More clean up in the code.
+
 
 v1.3.0 (2022-02-25)
 ------------------------
