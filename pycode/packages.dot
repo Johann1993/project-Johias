@@ -1,0 +1,11 @@
+digraph "packages" {
+rankdir=BT
+charset="utf-8"
+"bot_levels" [color="black", label="bot_levels", shape="box", style="solid"];
+"characters" [color="black", label="characters", shape="box", style="solid"];
+"dice" [color="black", label="dice", shape="box", style="solid"];
+"gamemodes" [color="black", label="gamemodes", shape="box", style="solid"];
+"main" [color="black", label="main", shape="box", style="solid"];
+"test_bots" [color="black", label="test_bots", shape="box", style="solid"];
+"test_dice" [color="black", label="test_dice", shape="box", style="solid"];
+}
