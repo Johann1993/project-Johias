@@ -70,7 +70,7 @@ class TestGamemodesClass(unittest.TestCase):
             total_score += result
             game_rounds += 1
 
-        expected = 0 <= total_score <= 100
+        expected = 0 <= total_score <= 1000
         self.assertTrue(expected)
 
     def test_roll_one(self):

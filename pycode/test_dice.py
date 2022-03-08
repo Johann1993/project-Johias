@@ -81,7 +81,6 @@ class TestDiceClass(unittest.TestCase):
 
     def test_show_number_rolls(self):
         """Test to retrieve number of rolls."""
-
         die = dice.Dice()
 
         expected = 4

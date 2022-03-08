@@ -73,8 +73,8 @@ def cpu_roll_one():
 
 def cpu_easy_roll_points(total, new_points):
     """Add round score to total game score."""
-    print(f"""Computer rolled a
-    {new_points}, added to the round total.""")
+    print(f"Computer rolled: {new_points}")
+    print("Added to the round total.")
     return total + new_points
 
 

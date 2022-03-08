@@ -55,7 +55,7 @@ def player_vs_bot():
 
         if end_game == 0:
             if (die_player1.show_total() > 100 and
-                die_computer.show_total() > 100):
+               die_computer.show_total() > 100):
                 print("It's a Tie! Both players lost!")
                 print_rolles_endgame(die_player1, die_computer)
 
@@ -95,14 +95,14 @@ def player_vs_player():
             break
 
     if result != 10001 and result_player2 != 10001:
-        if die_player1.show_total() > 100:
-            print("congratz! Player 1 actually won!")
+        if die_player1.show_total() > 100 and die_player2.show_total() > 100:
+            print("it's a tie!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
         elif die_player2.show_total() > 100:
             print("congratz! Computer actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
-        elif die_player1.show_total() > 100 and die_player2.show_total() > 100:
-            print("it's a tie!")
+        elif die_player1.show_total() > 100:
+            print("congratz! Player 1 actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
 
 
