@@ -14,6 +14,7 @@ def main():
     while True:
         options()
         game_option = input(str("select option: "))
+        print("-------------------")
         match game_option:
             case '1':
                 gamemodes.player_vs_bot()
@@ -32,20 +33,20 @@ def menu():
 
     Show statement when starting the game.
     """
-    print("""
-    Welcome to the game!
-    This is the game pig.
-    """)
+    print('''
+    Welcome to the game.
+    This is the game pig!
+    ''')
 
 
 def options():
     """See the options to select from."""
-    print("""This is your options:
-    1) play game vs computer
-    2) play game vs other player
-    3) view local highscores
-    4) view rules
-    5) exit to desktop""")
+    print("This is your options:")
+    print("1) play game vs computer")
+    print("2) play game vs other player")
+    print("3) view local highscores")
+    print("4) view rules")
+    print("5) exit to desktop")
 
 
 if __name__ == '__main__':

@@ -66,8 +66,8 @@ class BotDifficulty():
 
 def cpu_roll_one():
     """Reset round score to zero."""
-    print("""Computer rolled a 1,
-    round total set to 0. Other players turn!""")
+    print("Computer rolled a 1")
+    print("round total set to 0. Other players turn!")
     return 0
 
 
