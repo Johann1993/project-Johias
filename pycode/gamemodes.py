@@ -1,8 +1,10 @@
 """File contain the structure of the different gamemodes."""
 
 import time
+from typing import List
 import dice
 import bot_levels
+import characters
 
 
 def player_vs_bot():
@@ -43,7 +45,7 @@ def player_vs_bot():
             if choose_difficulty == 1:
                 total_points_computer = game.cpu_easy(die_computer)
                 die_computer.add_to_total(total_points_computer)
-                print("computer now has a total of:")
+                print("Computer now has a total of:")
                 print(f"{die_computer.show_total()}")
                 print("--------------------------------")
                 time.sleep(1)
@@ -54,21 +56,23 @@ def player_vs_bot():
                 print("--------------------------------")
                 time.sleep(1)
 
-        if end_game == 0:
-            if (die_player1.show_total() > 100 and
-               die_computer.show_total() > 100):
-                print("It's a Tie! Both players lost!")
-                print_rolles_endgame(die_player1, die_computer)
+    if end_game == 0:
+        if (die_player1.show_total() > 100 and
+            die_computer.show_total() > 100):
+            print("It's a Tie! Both players lost!")
+            print_rolles_endgame(die_player1, die_computer)
 
-            elif die_computer.show_total() > 100:
-                print("congratz! Computer actually won!")
-                print_rolles_endgame(die_player1, die_computer)
+        elif die_computer.show_total() > 100:
+            print("congratz! Computer actually won!")
+            print_rolles_endgame(die_player1, die_computer)
 
-            elif die_player1.show_total() > 100:
-                print("Congratz! player won!")
-                print_rolles_endgame(die_player1, die_computer)
-
-            die_player1.add_round()
+        elif die_player1.show_total() > 100:
+            print("Congratz! player won!")
+            print_rolles_endgame(die_player1, die_computer)
+            
+        player1_score = [die_player1.get_name(), str(die_player1.show_total())]
+        player2_score = [die_computer.get_name(), str(die_computer.show_total())]
+        characters.open_filewrite(player1_score, player2_score)
 
 
 def player_vs_player():
@@ -94,7 +98,6 @@ def player_vs_player():
 
         result_player2 = player_round(die_player2)
         die_player2.add_to_total(result_player2)
-
         if result_player2 == 10001:
             print("Player 2 chose to exit game!")
             print("---------------------------")
@@ -105,14 +108,15 @@ def player_vs_player():
             print("it's a tie!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
         elif die_player2.show_total() > 100:
-            print("congratz! Player 2 actually won!")
+            print(f"congratz! {die_player2.get_name()} actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
         elif die_player1.show_total() > 100:
-            print("congratz! Player 1 actually won!")
+            print(f"congratz! {die_player1.get_name()} actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
 
-        die_player1.add_round()
-        die_player2.add_round()
+        player1_score = [die_player1.get_name(), str(result)]
+        player2_score = [die_player2.get_name(), str(result_player2)]
+        characters.open_filewrite(player1_score, player2_score)
 
 
 def player_round(die_player):
@@ -143,9 +147,9 @@ def player_round(die_player):
                     print("---------------------------")
                     player_round_total = 0
                     break
-
             case '2':
                 die_player.add_to_total(player_round_total)
+                player_round_total = 0
                 print("you now have a total of :")
                 print(f"{die_player.show_total()}")
                 print("---------------------------------------")

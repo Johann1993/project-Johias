@@ -6,6 +6,7 @@ While running the program.
 # . .venv/Scripts/activate active venv in bash
 import sys
 import gamemodes
+import characters
 
 
 def main():
@@ -21,7 +22,9 @@ def main():
             case '2':
                 gamemodes.player_vs_player()
             case '3':
-                print("highscores will be shown here")
+                print("highscores:")
+                highscores = characters.open_fileread()
+                print(highscores)
             case '4':
                 gamemodes.see_rules()
             case '5':
