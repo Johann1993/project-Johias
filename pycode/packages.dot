@@ -8,4 +8,5 @@ charset="utf-8"
 "main" [color="black", label="main", shape="box", style="solid"];
 "test_bots" [color="black", label="test_bots", shape="box", style="solid"];
 "test_dice" [color="black", label="test_dice", shape="box", style="solid"];
+"test_bots" -> "bot_levels" [arrowhead="open", arrowtail="none"];
 }
