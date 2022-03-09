@@ -21,7 +21,7 @@ class TestDiceClass(unittest.TestCase):
         Makes sure that an object is generated
         and that max score is a 6.
         """
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         self.assertIsInstance(die, dice.Dice)
 
@@ -37,7 +37,7 @@ class TestDiceClass(unittest.TestCase):
         Rolling the dice should
         return a number between 1 and 6.
         """
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         result = die.roll_the_dice()
         expected = 1 <= result <= die.max_amount
@@ -45,7 +45,7 @@ class TestDiceClass(unittest.TestCase):
 
     def test_die_cheat(self):
         """Check dice cheat returns highest possible value."""
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         cheat_res = die.roll_dice_cheat()
         expected = 6
@@ -53,7 +53,7 @@ class TestDiceClass(unittest.TestCase):
 
     def test_show_total(self):
         """Check that starting score of dice is 0."""
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         result = die.show_total()
         expected = 0
@@ -62,7 +62,7 @@ class TestDiceClass(unittest.TestCase):
 
     def test_add_sum(self):
         """Check if adding scores to total game points works."""
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         die.add_to_total(5)
         result = die.show_total()
@@ -71,7 +71,7 @@ class TestDiceClass(unittest.TestCase):
 
     def test_change_dice_value(self):
         """Test to change highest dice roll value."""
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         start_value = die.roll_dice_cheat()
         die.change_highest_value(20)
@@ -81,7 +81,7 @@ class TestDiceClass(unittest.TestCase):
 
     def test_show_number_rolls(self):
         """Test to retrieve number of rolls."""
-        die = dice.Dice()
+        die = dice.Dice("john")
 
         expected = 4
         rolls = 0
@@ -92,6 +92,44 @@ class TestDiceClass(unittest.TestCase):
         total_rolls = die.show_amount_rolls()
 
         self.assertEqual(total_rolls, expected)
+
+    def test_get_name(self):
+        """Test to get correct name."""
+        die = dice.Dice("John")
+
+        expected = "John"
+        result = die.get_name()
+
+        self.assertEqual(expected, result)
+
+    def test_add_round(self):
+        """Test to add a round."""
+        die = dice.Dice("john")
+
+        expected = 1
+        die.add_round()
+        result = die.get_rounds()
+
+        self.assertEqual(expected, result)
+
+    def test_get_rounds(self):
+        """Test to retrieve rounds."""
+        die = dice.Dice("john")
+
+        expected = 0
+        result = die.get_rounds()
+
+        self.assertEqual(expected, result)
+
+    def test_change_name(self):
+        """Test to change name."""
+        die = dice.Dice("john")
+
+        first_name = die.get_name()
+        die.change_name("Elon")
+        second_name = die.get_name()
+
+        self.assertNotEqual(first_name, second_name)
 
 
 if __name__ == "__main__":

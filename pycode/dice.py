@@ -13,7 +13,7 @@ class Dice():
 
     max_amount = 6
 
-    def __init__(self):
+    def __init__(self, name):
         """
         Create a dice.
 
@@ -22,6 +22,8 @@ class Dice():
         random.seed()
         self.my_rolls_amount = 0
         self.total_amount = 0
+        self.played_games = 0
+        self.player = name
 
     def roll_the_dice(self):
         """
@@ -70,3 +72,19 @@ class Dice():
     def change_highest_value(self, new_value):
         """Change highest possible roll value."""
         self.max_amount = new_value
+
+    def get_name(self):
+        """Return name of player."""
+        return self.player
+
+    def add_round(self):
+        """Add 1 round to total."""
+        self.played_games += 1
+
+    def get_rounds(self):
+        """Return number of played games."""
+        return self.played_games
+
+    def change_name(self, new_name):
+        """Change name of player."""
+        self.player = new_name

@@ -23,7 +23,7 @@ class TestGamemodesClass(unittest.TestCase):
 
         Runs a round to see that it scores.
         """
-        bot_test = dice.Dice()
+        bot_test = dice.Dice("Computer")
         game = bot_levels.BotDifficulty()
 
         result = game.cpu_easy(bot_test)
@@ -37,7 +37,7 @@ class TestGamemodesClass(unittest.TestCase):
         Bot then runs a round to see if it works.
         """
         game = bot_levels.BotDifficulty()
-        bot_test = dice.Dice()
+        bot_test = dice.Dice("Computer")
 
         result = game.cpu_medium(bot_test)
         expected = 0 <= result <= 100
@@ -45,7 +45,7 @@ class TestGamemodesClass(unittest.TestCase):
 
     def test_easy_bot_several_rounds(self):
         """Easy bot running more rounds."""
-        bot_test = dice.Dice()
+        bot_test = dice.Dice("Computer")
         game = bot_levels.BotDifficulty()
 
         game_rounds = 0
@@ -60,7 +60,7 @@ class TestGamemodesClass(unittest.TestCase):
 
     def test_medium_bot_several_rounds(self):
         """Easy bot running more rounds."""
-        bot_test = dice.Dice()
+        bot_test = dice.Dice("Computer")
         game = bot_levels.BotDifficulty()
 
         game_rounds = 0

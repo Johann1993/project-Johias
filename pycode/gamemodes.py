@@ -11,8 +11,9 @@ def player_vs_bot():
 
     it's created to keep the main class clean.
     """
-    die_player1 = dice.Dice()
-    die_computer = dice.Dice()
+    player_name = input(str("select player name: "))
+    die_player1 = dice.Dice(player_name)
+    die_computer = dice.Dice("Computer")
     game = bot_levels.BotDifficulty()
 
     while True:
@@ -67,6 +68,8 @@ def player_vs_bot():
                 print("Congratz! player won!")
                 print_rolles_endgame(die_player1, die_computer)
 
+            die_player1.add_round()
+
 
 def player_vs_player():
     """
@@ -74,8 +77,11 @@ def player_vs_player():
 
     This method will run the gamemode.
     """
-    die_player1 = dice.Dice()
-    die_player2 = dice.Dice()
+    player_name = input(str("select player name: "))
+    player2_name = input(str("select player 2 name: "))
+    print("----------------------")
+    die_player1 = dice.Dice(player_name)
+    die_player2 = dice.Dice(player2_name)
 
     while(die_player1.show_total() < 100 and die_player2.show_total() < 100):
 
@@ -99,11 +105,14 @@ def player_vs_player():
             print("it's a tie!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
         elif die_player2.show_total() > 100:
-            print("congratz! Computer actually won!")
+            print("congratz! Player 2 actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
         elif die_player1.show_total() > 100:
             print("congratz! Player 1 actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
+
+        die_player1.add_round()
+        die_player2.add_round()
 
 
 def player_round(die_player):
@@ -117,13 +126,14 @@ def player_round(die_player):
     while True:
         print(" 1) Throw dice \n 2) End round \n 3) Use cheat")
         print(" 4) See rules \n 5) change dice highest value")
-        selection = input(str(""" 6) Exit gamemode \n    Your option: """))
+        print(" 6) Exit gamemode")
+        selection = input(str(f"{die_player.get_name()} option: "))
         print(" ")
         match selection:
             case '1':
                 diescore = die_player.roll_the_dice()
                 if diescore >= 2:
-                    print(f"your rolled: {diescore}")
+                    print(f"{die_player.get_name()} rolled: {diescore}")
                     print(f"Round total:{diescore + player_round_total}")
                     print("------------------------------------")
                     player_round_total += diescore
@@ -173,9 +183,9 @@ def print_rolles_endgame_1vs1(die_player, die_player2):
 
     This function prints out the statistics of the game once finished.
     """
-    print("You threw the dice")
+    print(f"{die_player.get_name()} threw the dice")
     print(f"{die_player.show_amount_rolls()} times")
-    print("Player 2 has thrown the dice")
+    print(f"{die_player2.get_name()} has thrown the dice")
     print(f"{die_player2.show_amount_rolls()} times")
 
 
