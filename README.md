@@ -50,7 +50,34 @@ In the makefile one can find the structure of how the tests are implmented and h
 Release.md is a text file containing all the different version of the game that has been developt. From here you can see
 follow the history of our development of the game. 
 
-LÄGG TILL HUR MAN INSTALLERAR SPELET HÄR !!!!!!!!!!!!!!!!!!!!!!!!
+========================================================================================================
+
+Installation
+
+OBS! make sure you have make installed on your computer(chocolatey for windows for example)
+
+1. Open terminal Git bash as administrator. 
+2. Clone our project.
+   command : git clone https://github.com/tobleroo/project-Johias
+   Then enter the folder using command : cd project-Johias
+3. Run make command : make venv
+4. Activate venv using this command : . .venv/Scripts/activate
+5. Now install packages by command : make install
+
+6. Now you are all set to go!
+
+========================================================================================================
+
+Play game
+
+1. Start of in Git Bash terminal. 
+2. Enter the repository : cd project-Johias
+3. activate venv (you can find the command above in installation part).
+4. enter pycode folder : cd pycode
+
+5. enter command : python main.py 
+
+Now enjoy the game! 
 
 ========================================================================================================
 
@@ -58,7 +85,7 @@ Unittesting.
 
 If one desires to test our program it is available to do so. here is a guide on how. 
 
-1. Open terminal
+1. Open terminal Bash
 2. enter project-Johias folder, then enter folder pycode
 3. Activate virtual enviroment using this command :  . .venv/Scripts/activate
 4. enter command one at a time : 
@@ -77,11 +104,17 @@ In case you would like to look at the documentation and layout of our program fo
 3. then follow the steps in terminal
 
 If one would like to see the complete pydoc documentation
+
 1. enter : make doc
 2. there will be a pydoc folder created in pycode folder containing html files of all classes.
 
 
+check uml in html
 
+1. 
+2. 
+3. 
+4. 
 
 
 

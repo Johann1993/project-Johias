@@ -114,7 +114,7 @@ pyreverse:
 	dot -Tpng packages.dot -o doc/pyreverse/packages.png
 	rm -f classes.dot packages.dot
 
-doc: pdoc pyreverse browserdoc #pydoc sphinx
+doc: pdoc pyreverse #pydoc sphinx
 
 # ---------------------------------------------------------
 # get access to pydocs in html
@@ -123,6 +123,13 @@ browserdoc:
 	@$(call MESSAGE,$@)
 	python -m pydoc -p 1337
 
+# ---------------------------------------------------------
+# Open uml of the project
+#
+# uml-html:
+#	@$(call MESSAGE,$@)
+#	@echo "<img src="classes.png">" > doc/uml/index.html
+#	@echo "<img src ="packages.png">" >> doc/uml/index.html
 
 # ---------------------------------------------------------
 # Calculate software metrics for your project.

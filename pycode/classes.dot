@@ -1,8 +1,0 @@
-digraph "classes" {
-rankdir=BT
-charset="utf-8"
-"bot_levels.BotDifficulty" [color="black", fontcolor="black", label="{BotDifficulty|\l|cpu_easy(die_computer)\lcpu_medium(die_computer)\l}", shape="record", style="solid"];
-"dice.Dice" [color="black", fontcolor="black", label="{Dice|max_amount\lmax_amount : int\lmy_rolls_amount : int\lplayed_games : int\lplayer\ltotal_amount : int\l|add_round()\ladd_to_total(one_round_total)\lchange_highest_value(new_value)\lchange_name(new_name)\lget_name()\lget_rounds()\lroll_dice_cheat()\lroll_the_dice()\lshow_amount_rolls()\lshow_total()\l}", shape="record", style="solid"];
-"test_dice.TestDiceClass" [color="black", fontcolor="black", label="{TestDiceClass|\l|test_add_round()\ltest_add_sum()\ltest_change_dice_value()\ltest_change_name()\ltest_default_object()\ltest_die_cheat()\ltest_get_name()\ltest_get_rounds()\ltest_roll_die()\ltest_show_number_rolls()\ltest_show_total()\l}", shape="record", style="solid"];
-"test_bots.TestGamemodesClass" [color="black", fontcolor="black", label="{TestGamemodesClass|\l|test_bot_easy()\ltest_bot_medium()\ltest_easy_bot_several_rounds()\ltest_easy_roll_points()\ltest_medium_bot_several_rounds()\ltest_medium_roll_points()\ltest_roll_one()\l}", shape="record", style="solid"];
-}
