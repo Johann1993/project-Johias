@@ -1,7 +1,5 @@
 """File contain the structure of the different gamemodes."""
 
-import time
-from typing import List
 import dice
 import bot_levels
 import characters
@@ -48,17 +46,15 @@ def player_vs_bot():
                 print("Computer now has a total of:")
                 print(f"{die_computer.show_total()}")
                 print("--------------------------------")
-                time.sleep(1)
             elif choose_difficulty == 2:
                 total_points_computer = game.cpu_medium(die_computer)
                 die_computer.add_to_total(total_points_computer)
                 print(f"computer total:{die_computer.show_total()}")
                 print("--------------------------------")
-                time.sleep(1)
 
     if end_game == 0:
         if (die_player1.show_total() > 100 and
-            die_computer.show_total() > 100):
+           die_computer.show_total() > 100):
             print("It's a Tie! Both players lost!")
             print_rolles_endgame(die_player1, die_computer)
 
@@ -69,9 +65,10 @@ def player_vs_bot():
         elif die_player1.show_total() > 100:
             print("Congratz! player won!")
             print_rolles_endgame(die_player1, die_computer)
-            
+
         player1_score = [die_player1.get_name(), str(die_player1.show_total())]
-        player2_score = [die_computer.get_name(), str(die_computer.show_total())]
+        player2_score = [die_computer.get_name(),
+                         str(die_computer.show_total())]
         characters.open_filewrite(player1_score, player2_score)
 
 

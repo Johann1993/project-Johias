@@ -1,7 +1,7 @@
 
 ====================================== Game description & rules! =============================
 
-This game is called pig and is played using a 6 faced dice. 
+This game is called pig and is played using a virtual dice. 
 To win a round of this game, one must reach 100 point in total from throwing the dice.
 Once it's a players turn to throw the dice, as long as one does not throw a 1 , 
 player may continue to throw until they decide to end their round or throws a 1.
@@ -28,6 +28,12 @@ Cheating.
 there are a dice cheat built in that always will give the highest value possible
 from the dice if one should feel the need to use it.
 
+Change highest possible dice value.
+
+There is an option to change the highest value of the dice if one feel like changing. 
+If this is used, the player selects the option, inputs what amount you want to have as a max and hit enter, now
+the dice may roll from any number up to what you have chosen as max. 
+
 Exit game and ongoing round.
 
 In main menu there will be an option to exit the program
@@ -37,17 +43,19 @@ and during an ongoing game there is an option to exit to the main menu.
 
 Project information and structure.
 
-This game was developed as a TDD (test driven development) 
-inside the project folder called pycode one can find all the python code files being used,both for the game and tests.
-main.py file you can see how the game is structured and go from there. We have kept main as simple as possible by implementing    
-gamemode in other classes to easier follow up the different parts. 
+This game was developed as a TDD (test driven development) project.
+Inside the project folder called pycode one can find all the python code files being used,both for the game and tests.
+main.py is where you can see how the game is structured and go from there. We have kept main as simple as possible by implementing gamemodes in other classes to easier follow up the different parts. 
+
 gamemodes.py is where the different gamemode can be found if you'd like to see their structure.
+
 dice.py is the object created to play the game and get points. 
-bot_levels.py contains the two avaiable bots difficulty. this is basically their "brain" structure.
+
+bot_levels.py contains the two avaiable bot difficulties. This is basically their "brain" structure.
 
 There is a requirements txt file containing all the software needed to perform tests and run the game. 
-In the makefile one can find the structure of how the tests are implmented and how they operate.
-Release.md is a text file containing all the different version of the game that has been developt. From here you can see
+In the makefile one can find the structure of how the tests are implmented and commands to use them.
+Release.md is a text file containing all the different version of the game that has been developet. From here you can
 follow the history of our development of the game. 
 
 ========================================================================================================
@@ -70,14 +78,14 @@ OBS! make sure you have make installed on your computer(chocolatey for windows f
 
 Play game
 
-1. Start of in Git Bash terminal. 
+1. Start of in Git Bash terminal.
 2. Enter the repository : cd project-Johias
 3. activate venv (you can find the command above in installation part).
 4. enter pycode folder : cd pycode
 
 5. enter command : python main.py 
 
-Now enjoy the game! 
+Enjoy the game! 
 
 ========================================================================================================
 
@@ -85,37 +93,46 @@ Unittesting.
 
 If one desires to test our program it is available to do so. here is a guide on how. 
 
-1. Open terminal Bash
-2. enter project-Johias folder, then enter folder pycode
-3. Activate virtual enviroment using this command :  . .venv/Scripts/activate
-4. enter command one at a time : 
-    - make flake8 (tests the structure of the code)
-    - make pylint (also tests the structure of the code)
+1. Open terminal Bash (keep in mind to use Bash as admin).
+2. enter project-Johias folder and activate venv
+   - use cd <foldername> to enter and cd.. to return
+3. enter folder called pycode
+4. input commands: 
+    - make flake8 (tests the code style of the code)
+    - make pylint (tests the structure of the code)
     - make lint (test both flake8 and pylint at once)
-    - make coverage (LÄGG TILL FÖRKLARING)
-    - make NÅGOT MER HÄR
-5. 
+    - make coverage (calculates how much of the code is used in tests)
+    - make unittest (run all unittests)
+    - run all the commands at once : make test
 
-Documentation by docstring guide.
+========================================================================================================
 
-In case you would like to look at the documentation and layout of our program follow these steps. 
-1. Enter pycode folder
-2. enter : make browserdoc
-3. then follow the steps in terminal
+Documentation by docstring & uml
 
-If one would like to see the complete pydoc documentation
+In case you would like to look at the documentation and layout of our program follow these steps:
 
-1. enter : make doc
-2. there will be a pydoc folder created in pycode folder containing html files of all classes.
+1. Make sure you have graphyz installed for later use by command : choco install graphviz -y
+1. Enter command : make doc
+   This command will generate all required documentation from our source code.
 
+View pydoc documentation :
 
-check uml in html
+1. input : make browserdoc
+2. Follow the steps shown in terminal
 
-1. 
-2. 
-3. 
-4. 
+view UML diagram of our project:
 
+1. open up a webbrowser
+2. press ctrl + o
+3. enter folders : projSusdev/pycode/doc/pyreverse
+4. click on index.html or index2.html to view structure.
 
+========================================================================================================
+
+Clean-up
+
+Once you are done and no longer want to use our game, there is a final make command 
+you might want to use. This will remove all generated files thats been created using this game.
+command to use in git Bash : make clean-all  (this will also remove the virtual enviroment).
 
 

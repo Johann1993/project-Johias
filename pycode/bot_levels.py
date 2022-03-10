@@ -1,5 +1,4 @@
 """Python file for AI bots."""
-import time
 import random
 
 
@@ -22,7 +21,6 @@ class BotDifficulty():
                     result = die_computer.roll_the_dice()
                     if result > 1:
                         cpu_easy_roll_points(computer_total, result)
-                        time.sleep(1)
                     elif result == 1:
                         computer_total = cpu_roll_one()
                         break
@@ -45,7 +43,6 @@ class BotDifficulty():
             result = die_computer.roll_the_dice()
             if result >= 2:
                 print(f"Computer rolled a {result}")
-                time.sleep(1)
                 if (computer_total == 12 and
                    die_computer.my_rolls_amount == 2):
                     computer_total = cpu_medium_roll_points(computer_total,
