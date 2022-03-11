@@ -1,20 +1,15 @@
-from cgitb import reset
-from turtle import up
-from unicodedata import name
+"""File for testing of Characters."""
+import os.path
 import unittest
 import characters
 import dice
-import os.path
 
 
 class TestCharactersClass(unittest.TestCase):
-    """
-    This class is for testing Characters.
-    """
+    """This class is for testing Characters."""
+
     def test_sort(self):
-        """
-        This test is testing the sort function.
-        """
+        """This test is testing the sort function."""
         die1 = dice.Dice("Fred")
         die2 = dice.Dice("John")
 
@@ -26,18 +21,13 @@ class TestCharactersClass(unittest.TestCase):
         next_list = [new_list, new_list2]
 
         sort_list = characters.sort_highscore(next_list)
-
-
         expected = "John"
         result = sort_list[0][0]
 
         self.assertEqual(expected, result)
 
-
     def test_find_player(self):
-        """
-        This test is testing if it can find a player
-        """
+        """This test is testing if it can find a player."""
         name = "John"
         points = 12
         player = [name, points]
@@ -46,9 +36,8 @@ class TestCharactersClass(unittest.TestCase):
 
         self.assertEqual(points, result)
 
-
     def test_delete(self):
-        """ This test is testing the delete player????. """
+        """This test is testing the delete player."""
         name = "John"
         points = 12
         name1 = "Tom"
@@ -64,9 +53,8 @@ class TestCharactersClass(unittest.TestCase):
 
         self.assertNotEqual(find, new_list)
 
-
     def test_writefile(self):
-        """ This test should test if the file gets open. """
+        """This test should test if the file gets open."""
         die1 = dice.Dice("Test")
         test = [die1.get_name(), str(die1.show_total())]
         characters.open_filewrite(test, test)
@@ -74,27 +62,23 @@ class TestCharactersClass(unittest.TestCase):
 
         self.assertTrue(file_exists)
 
-    
     def test_update(self):
         """This test if points gets updated."""
         player_name = "TestName"
         score = 20
         player = [player_name, score]
-        player_data = [player]
+        data = [player]
         new_score = 55
-        updated_list = characters.update_points(player_name, new_score, player_data)
+        updated_list = characters.update_points(player_name, new_score, data)
 
         self.assertNotEqual(player, updated_list)
 
-
     def test_open_fileread(self):
         """This test will test so it is possible to open file."""
-
         result = characters.open_fileread()
 
         self.assertIsNotNone(result)
-    
-        
+
 
 if __name__ == '__main__':
     unittest.main()
