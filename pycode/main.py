@@ -3,7 +3,6 @@ Python file containing messages and main function.
 
 While running the program.
 """
-# . .venv/Scripts/activate active venv in bash
 import sys
 import gamemodes
 import characters
