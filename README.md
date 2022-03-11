@@ -53,6 +53,9 @@ dice.py is the object created to play the game and get points.
 
 bot_levels.py contains the two avaiable bot difficulties. This is basically their "brain" structure.
 
+characters.py has all function for creating a highscore list. Adding, deleting and retrieve data
+from all played games and its data.
+
 There is a requirements txt file containing all the software needed to perform tests and run the game. 
 In the makefile one can find the structure of how the tests are implmented and commands to use them.
 Release.md is a text file containing all the different version of the game that has been developet. From here you can
@@ -95,7 +98,7 @@ If one desires to test our program it is available to do so. here is a guide on 
 
 1. Open terminal Bash (keep in mind to use Bash as admin).
 2. enter project-Johias folder and activate venv
-   - use cd <foldername> to enter and cd.. to return
+   - use cd <foldername> to enter and cd .. to return
 3. enter folder called pycode
 4. input commands: 
     - make flake8 (tests the code style of the code)
@@ -112,7 +115,8 @@ Documentation by docstring & uml
 In case you would like to look at the documentation and layout of our program follow these steps:
 
 1. Make sure you have graphyz installed for later use by command : choco install graphviz -y
-1. Enter command : make doc
+2. enter pycode folder (cd pycode).
+3. Enter command : make doc
    This command will generate all required documentation from our source code.
 
 View pydoc documentation :

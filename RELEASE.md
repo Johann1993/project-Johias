@@ -1,6 +1,13 @@
 Release history
 ========================
 
+v 1.4.2 (2022-03-11)
+------------------------
+
+* Unittests added for characters.py file.
+* fix bug where score is added 2 times in one round.  
+* Cleanup in characters.py code structure.
+
 
 v.1.4.0 (2022-03-09)
 ------------------------

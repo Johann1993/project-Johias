@@ -116,8 +116,8 @@ pyreverse:
 
 uml-web:
 	@$(call MESSAGE,$@)
-	echo "<img src="classes.png">" > pycode/doc/pyreverse/index.html
-	echo "<img src="packages.png">" > pycode/doc/pyreverse/index2.html
+	echo "<img src="classes.png">" > doc/pyreverse/index.html
+	echo "<img src="packages.png">" > doc/pyreverse/index2.html
 
 doc: pdoc pyreverse uml-web #pydoc sphinx
 
