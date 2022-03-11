@@ -24,8 +24,6 @@ def open_fileread():
 
 def find_player(name, player_list):
     # Returns 0 if player not in list
-    print(name)
-    print(player_list)
     point = 0
     for i in range(len(player_list)):
         if name == player_list[i][0]:
@@ -35,23 +33,19 @@ def find_player(name, player_list):
 
 
 def delete_player(name, player_list):
-    # Returns 0 if player not in list
-    print(name)
-    print(player_list)
-    point = 0
+    """Deletes a player from list."""
+    new_list = []
     for i in range(len(player_list)):
-        if name == player_list[i][0]:
-            point = player_list[i][1]
-            player_list.remove(player_list[i])
-            return point
+        if name != player_list[i][0]:
+            new_list.append(player_list[i])
 
-    return point
+    return new_list
 
 
 def update_points(name, points, player_list):
     # Returns 0 if player not in list
-    print(name + ' ' + str(points))
-    print(player_list)
+    #print(name + ' ' + str(points))
+    #print(player_list)
     for i in range(len(player_list)):
         if name == player_list[i][0]:
             player_list[i][1] = points

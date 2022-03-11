@@ -25,7 +25,6 @@ class TestCharactersClass(unittest.TestCase):
 
         sort_list = characters.sort_highscore(next_list)
 
-        print(sort_list[0][0])
 
         expected = "John"
         result = sort_list[0][0]
@@ -59,10 +58,9 @@ class TestCharactersClass(unittest.TestCase):
         player1 = [name1, points1]
         player2 = [name2, points2]
         find = [player, player1, player2]
-        player_list = characters.delete_player(name, find)
-        print(player_list)
+        new_list = characters.delete_player(name, find)
 
-        self.assertNotEqual(find, player_list)
+        self.assertNotEqual(find, new_list)
 
 
     def test_writefile(self):
@@ -74,9 +72,9 @@ class TestCharactersClass(unittest.TestCase):
 
         self.assertTrue(file_exists)
 
-
+    """
     def test_update(self):
-        """ This test if points gets updated """
+        This test if points gets updated
         die1 = dice.Dice("Fred")
         die1.add_to_total(20)
         player = die1.get_name(), die1.show_total()
@@ -86,8 +84,8 @@ class TestCharactersClass(unittest.TestCase):
 
 
     def test_openfile(self):
-        """ This test will test so it is possible to open file"""
-        
+        This test will test so it is possible to open file
+    """
         
 
 if __name__ == '__main__':
