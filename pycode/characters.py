@@ -50,6 +50,8 @@ def update_points(name, points, player_list):
         if name == player_list[i][0]:
             player_list[i][1] = points
 
+    return player_list
+
 
 # Sort highscore list
 def sort_highscore(highscore_list):

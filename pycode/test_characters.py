@@ -1,3 +1,4 @@
+from turtle import up
 from unicodedata import name
 import unittest
 import characters
@@ -72,20 +73,22 @@ class TestCharactersClass(unittest.TestCase):
 
         self.assertTrue(file_exists)
 
-    """
+    
     def test_update(self):
-        This test if points gets updated
-        die1 = dice.Dice("Fred")
-        die1.add_to_total(20)
-        player = die1.get_name(), die1.show_total()
-        expected = (('Fred', 30))
+        """This test if points gets updated."""
+        player_name = "TestName"
+        score = 20
+        player = [player_name, score]
+        player_data = [player]
+        new_score = 55
+        updated_list = characters.update_points(player_name, new_score, player_data)
 
-        self.assertNotEqual(expected, player)
+        self.assertNotEqual(player, updated_list)
 
 
     def test_openfile(self):
-        This test will test so it is possible to open file
-    """
+        """This test will test so it is possible to open file."""
+    
         
 
 if __name__ == '__main__':
