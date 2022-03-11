@@ -1,3 +1,4 @@
+from cgitb import reset
 from turtle import up
 from unicodedata import name
 import unittest
@@ -86,8 +87,12 @@ class TestCharactersClass(unittest.TestCase):
         self.assertNotEqual(player, updated_list)
 
 
-    def test_openfile(self):
+    def test_open_fileread(self):
         """This test will test so it is possible to open file."""
+
+        result = characters.open_fileread()
+
+        self.assertIsNotNone(result)
     
         
 

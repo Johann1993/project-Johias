@@ -111,8 +111,8 @@ def player_vs_player():
             print(f"congratz! {die_player1.get_name()} actually won!")
             print_rolles_endgame_1vs1(die_player1, die_player2)
 
-        player1_score = [die_player1.get_name(), str(result)]
-        player2_score = [die_player2.get_name(), str(result_player2)]
+        player1_score = [die_player1.get_name(), str(die_player1.show_total())]
+        player2_score = [die_player2.get_name(), str(die_player2.show_total())]
         characters.open_filewrite(player1_score, player2_score)
 
 
