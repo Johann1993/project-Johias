@@ -59,7 +59,7 @@ def update_points(name, points, player_list):
 
 # Sort highscore list
 def sort_highscore(highscore_list):
-    
+
     print(highscore_list)
     sorted_new_list = sorted(highscore_list, key=lambda x: x[1], reverse=True)
     print(sorted_new_list)
